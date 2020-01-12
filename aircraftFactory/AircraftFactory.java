@@ -1,4 +1,4 @@
-package AircraftFactory;
+package aircraftFactory;
 
 public class AircraftFactory {
 	public static String newAircraft(String type, String name, int longitude, int latitude, int height) {
