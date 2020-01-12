@@ -11,8 +11,7 @@ public abstract class Aircraft {
 	}
 
 	// needs Coordinates
-	protected Aircraft(long id, String name, Coordinates coordinates) {
-			this.id = id;
+	protected Aircraft(String name, Coordinates coordinates) {
 			this.name = name;
 			this.coordinates = coordinates;
 	}

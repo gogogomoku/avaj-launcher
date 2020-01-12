@@ -11,8 +11,8 @@ public class Launcher {
             Coordinates coordinates = new Coordinates(2, 3, 4);
             int height = coordinates.getHeight();
             System.out.println(height);
-			String factory = AircraftFactory.newAircraft("name", "", 1, 2, 3);
-			System.out.println(factory);
+			Flyable h1 = AircraftFactory.newAircraft("Helicopter", "name", 1, 2, 3);
+			System.out.println(h1);
 		}
 	}
 }
