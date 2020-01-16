@@ -10,7 +10,10 @@ public abstract class Tower {
         this.observers.add(flyable);
         System.out.println(this.observers);
     }
-    public void unregister(Flyable flyable) {};
+    public void unregister(Flyable flyable) {
+        System.out.printf("Unregistering %s\n", flyable);
+        this.observers.remove(flyable);
+    };
 
     protected void conditionsChanged() {
         for (int i = 0; i < this.observers.size(); i++) {

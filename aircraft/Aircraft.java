@@ -20,4 +20,17 @@ public abstract class Aircraft {
         idCounter++;
         return idCounter;
 	}
+
+    protected void land(WeatherTower weatherTower){
+        if (this.coordinates.getHeight() == 0){
+            System.out.printf("%s %s landed at coordinates: (%d,%d,%d)\n",
+                    this.getClass().getName(),
+                    this.name,
+                    this.coordinates.getLongitude(),
+                    this.coordinates.getLatitude(),
+                    this.coordinates.getHeight()
+                );
+
+        }
+    }
 }
