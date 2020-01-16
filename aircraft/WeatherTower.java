@@ -2,8 +2,10 @@ package aircraft;
 
 public class WeatherTower extends Tower {
     public String getWeather(Coordinates coordinates) {
-        return "";
+        return WeatherProvider.getProvider().getCurrentWeather(coordinates);
     };
-    // Shouldn't be public
-    public void changeWeather() {};
+
+    protected void changeWeather() {
+        this.conditionsChanged();
+    };
 }
