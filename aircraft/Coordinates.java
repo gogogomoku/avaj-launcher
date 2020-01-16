@@ -5,8 +5,7 @@ public class Coordinates {
     private int latitude;
     private int height;
 
-    // This should't be public
-    public Coordinates(int longitude, int latitude, int height){
+    Coordinates(int longitude, int latitude, int height){
         this.longitude=longitude;
         this.latitude=latitude;
         this.height=height;
@@ -22,6 +21,5 @@ public class Coordinates {
 
     public int getHeight(){
         return height;
-
     }
 }
