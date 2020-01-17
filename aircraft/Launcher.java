@@ -2,7 +2,6 @@ package aircraft;
 
 public class Launcher {
 	public Launcher() {
-		System.out.print("Launcher instantiated!");
 		int iterations = 40;
 		Flyable h1 = AircraftFactory.newAircraft("Helicopter", "name1", 1, 2, 3);
 		Flyable h2 = AircraftFactory.newAircraft("Helicopter", "name2", 10, 2, -53);

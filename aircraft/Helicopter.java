@@ -24,7 +24,7 @@ public class Helicopter extends Aircraft implements Flyable {
             case "FOG":
                 coordinates.setLongitude(coordinates.getLongitude() + 1);
             case "SNOW":
-                coordinates.setHeight(coordinates.getHeight() + 12);
+                coordinates.setHeight(coordinates.getHeight() - 12);
         }
         System.out.println(weatherMessages.get(weather));
         System.out.println(coordinates.toString());

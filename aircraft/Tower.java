@@ -8,8 +8,10 @@ public abstract class Tower {
             this.observers = new ArrayList<Flyable>();
         }
         this.observers.add(flyable);
-        System.out.println(this.observers);
+        // todo: Do we need ID/name in this message
+        System.out.printf("Tower: Registering a new %s\n", flyable.getClass().getSimpleName());
     }
+
     public void unregister(Flyable flyable) {
         // todo: Do we need ID/name in this message
         System.out.printf("Tower: Unregistering a %s\n", flyable.getClass().getSimpleName());
@@ -20,6 +22,5 @@ public abstract class Tower {
         for (int i = 0; i < this.observers.size(); i++) {
             this.observers.get(i).updateConditions();
         }
-
     };
 }
