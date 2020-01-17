@@ -11,7 +11,8 @@ public abstract class Tower {
         System.out.println(this.observers);
     }
     public void unregister(Flyable flyable) {
-        System.out.printf("Unregistering %s\n", flyable);
+        // todo: Do we need ID/name in this message
+        System.out.printf("Tower: Unregistering a %s\n", flyable.getClass().getSimpleName());
         this.observers.remove(flyable);
     };
 

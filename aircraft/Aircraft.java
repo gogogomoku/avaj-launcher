@@ -13,7 +13,7 @@ public abstract class Aircraft {
 	protected Aircraft(String name, Coordinates coordinates) {
 			this.name = name;
 			this.coordinates = coordinates;
-            this.id = nextId();
+			this.id = nextId();
 	}
 
 	private static long nextId() {
@@ -24,7 +24,7 @@ public abstract class Aircraft {
     protected void land(WeatherTower weatherTower){
         if (this.coordinates.getHeight() == 0){
             System.out.printf("%s %s landed at coordinates: (%d,%d,%d)\n",
-                    this.getClass().getName(),
+                    this.getClass().getSimpleName(),
                     this.name,
                     this.coordinates.getLongitude(),
                     this.coordinates.getLatitude(),
