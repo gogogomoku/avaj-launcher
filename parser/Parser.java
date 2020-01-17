@@ -3,21 +3,29 @@ import java.util.Scanner;
 import java.io.File;
 
 public class Parser {
-	public static boolean checkFileValidity(String path) {
+	public int nSims;
+	public AircraftData[] aircraftData;
+
+	public Parser(String path) {
+		// todo: Proper error handling
 		if (path.isEmpty()) {
-			return false;
+			System.out.printf("pathname is empty.");
+			return;
 		}
 		try {
-			// File file =
 			File file = new File(path);
 			Scanner input = new Scanner(file);
-			System.out.println(input.nextLine());
+			this.nSims = Integer.parseInt(input.nextLine());
+			System.out.printf("nSims: %d\n", nSims);
+			while (input.hasNextLine()) {
+				System.out.println(input.nextLine());
+			}
 			input.close();
-			// File file = new File(input.nextLine());
-			return true;
+			return;
 		} catch (Exception e) {
+			// todo: Proper error handling
 			System.out.printf("There was an error: %s\n", e);
-			return false;
+			return;
 		}
 	}
 }
