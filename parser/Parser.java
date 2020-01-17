@@ -1,13 +1,19 @@
 package parser;
-import java.util.Scanner;
+import java.util.*;
 import java.io.File;
 
 public class Parser {
 	public int nSims;
 	public AircraftData[] aircraftData;
+    private String errorMessage;
+    private static ArrayList<String> validAircraftTypes = new ArrayList<String>(
+            Arrays.asList("Balloon", "Helicopter", "JetPlane")
+        );
 
 	public Parser(String path) {
-		// todo: Proper error handling
+        aircraftData = new AircraftData[]{};
+        errorMessage = "";
+
 		if (path.isEmpty()) {
 			System.out.printf("pathname is empty.");
 			return;
@@ -18,7 +24,11 @@ public class Parser {
 			this.nSims = Integer.parseInt(input.nextLine());
 			System.out.printf("nSims: %d\n", nSims);
 			while (input.hasNextLine()) {
-				System.out.println(input.nextLine());
+                validateLine(input.nextLine());
+                if (!errorMessage.isEmpty()){
+                    System.out.println(errorMessage);
+                    break;
+                }
 			}
 			input.close();
 			return;
@@ -28,4 +38,25 @@ public class Parser {
 			return;
 		}
 	}
+
+    private void validateLine(String line){
+        String data[] = line.split(" ");
+        if (data.length != 5) {
+            this.errorMessage = String.format(
+                    "Wrong number of arguents in line: %d\n",
+                    aircraftData.length+2
+                );
+                return;
+        }
+        if (!validAircraftTypes.contains(data[0])){
+            this.errorMessage = String.format(
+                    "%s is not a valid aircraft type in line: %d\n",
+                    data[0],
+                    aircraftData.length+2
+                );
+                return;
+        }
+    }
+
+
 }
