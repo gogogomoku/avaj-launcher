@@ -11,21 +11,35 @@ public class Coordinates {
         this.height=height;
     }
 
+    public String toString() {
+        return String.format("[debug] (lng: %d, lat: %d), hgt: %d\n", this.longitude, this.latitude, this.height);
+    }
+
     public void setLongitude(int value){
+        if (value > 360) {
+            value = value % 360;
+        } else if (value < 0) {
+            value = 360 - (value % 360);
+        }
         this.longitude = value;
     }
 
     public void setLatitude(int value){
+        if (value > 360) {
+            value = value % 360;
+        } else if (value < 0) {
+            value = 360 - (value % 360);
+        }
         this.latitude = value;
     }
 
     public void setHeight(int value){
-        this.height = value;
-        if (this.height < 0) {
-            this.height = 0;
-        } else if (this.height > 100) {
-            this.height = 100;
+        if (value < 0) {
+            value = 0;
+        } else if (value > 100) {
+            value = 100;
         }
+        this.height = value;
     }
 
     public int getLongitude(){
