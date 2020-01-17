@@ -23,7 +23,7 @@ public abstract class Aircraft {
 
     protected void land(WeatherTower weatherTower){
         if (this.coordinates.getHeight() == 0){
-            System.out.printf("%s %s landed at coordinates: (%d,%d,%d)\n",
+            System.out.printf("%s %s landed at coordinates: (lng: %d,lat: %d, hgt:%d)\n",
                     this.getClass().getSimpleName(),
                     this.name,
                     this.coordinates.getLongitude(),

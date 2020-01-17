@@ -1,33 +1,33 @@
 package aircraft;
 import java.util.HashMap;
 
-public class Helicopter extends Aircraft implements Flyable {
+public class JetPlane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
     private HashMap<String, String> weatherMessages;
 
-    public Helicopter(String name, Coordinates coordinates){
+    public JetPlane(String name, Coordinates coordinates){
         super(name, coordinates);
         weatherMessages = new HashMap<>();
-        weatherMessages.put("FOG", "I am a HELICOPTER in the FOG");
-        weatherMessages.put("RAIN", "I am a HELICOPTER in the RAIN");
-        weatherMessages.put("SNOW", "I am a HELICOPTER in the SNOW");
-        weatherMessages.put("SUN", "I am a HELICOPTER in the SUN");
+        weatherMessages.put("FOG", "I am a JET_PLANE in the FOG");
+        weatherMessages.put("RAIN", "I am a JET_PLANE in the RAIN");
+        weatherMessages.put("SNOW", "I am a JET_PLANE in the SNOW");
+        weatherMessages.put("SUN", "I am a JET_PLANE in the SUN");
     }
 
     private void setNewCoordinates(String weather) {
         switch (weather) {
             case "SUN":
                 coordinates.setHeight(coordinates.getHeight() + 2);
-                coordinates.setLongitude(coordinates.getLongitude() + 10);
+                coordinates.setLatitude(coordinates.getLatitude() + 10);
                 break;
             case "RAIN":
-                coordinates.setLongitude(coordinates.getLongitude() + 5);
+                coordinates.setLatitude(coordinates.getLatitude() + 5);
                 break;
             case "FOG":
-                coordinates.setLongitude(coordinates.getLongitude() + 1);
+                coordinates.setLatitude(coordinates.getLatitude() + 1);
                 break;
             case "SNOW":
-                coordinates.setHeight(coordinates.getHeight() - 12);
+                coordinates.setHeight(coordinates.getHeight() - 7);
                 break;
         }
         System.out.println(weatherMessages.get(weather));

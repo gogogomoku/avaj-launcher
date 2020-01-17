@@ -1,33 +1,33 @@
 package aircraft;
 import java.util.HashMap;
 
-public class Helicopter extends Aircraft implements Flyable {
+public class Balloon extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
     private HashMap<String, String> weatherMessages;
 
-    public Helicopter(String name, Coordinates coordinates){
+    public Balloon(String name, Coordinates coordinates){
         super(name, coordinates);
         weatherMessages = new HashMap<>();
-        weatherMessages.put("FOG", "I am a HELICOPTER in the FOG");
-        weatherMessages.put("RAIN", "I am a HELICOPTER in the RAIN");
-        weatherMessages.put("SNOW", "I am a HELICOPTER in the SNOW");
-        weatherMessages.put("SUN", "I am a HELICOPTER in the SUN");
+        weatherMessages.put("FOG", "I am a BALOON in the FOG");
+        weatherMessages.put("RAIN", "I am a BALOON in the RAIN");
+        weatherMessages.put("SNOW", "I am a BALOON in the SNOW");
+        weatherMessages.put("SUN", "I am a BALOON in the SUN");
     }
 
     private void setNewCoordinates(String weather) {
         switch (weather) {
             case "SUN":
-                coordinates.setHeight(coordinates.getHeight() + 2);
-                coordinates.setLongitude(coordinates.getLongitude() + 10);
+                coordinates.setHeight(coordinates.getHeight() + 4);
+                coordinates.setLongitude(coordinates.getLongitude() + 2);
                 break;
             case "RAIN":
-                coordinates.setLongitude(coordinates.getLongitude() + 5);
+                coordinates.setHeight(coordinates.getHeight() - 5);
                 break;
             case "FOG":
-                coordinates.setLongitude(coordinates.getLongitude() + 1);
+                coordinates.setHeight(coordinates.getHeight() -3);
                 break;
             case "SNOW":
-                coordinates.setHeight(coordinates.getHeight() - 12);
+                coordinates.setHeight(coordinates.getHeight() - 15);
                 break;
         }
         System.out.println(weatherMessages.get(weather));
