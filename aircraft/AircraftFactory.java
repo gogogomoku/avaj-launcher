@@ -13,6 +13,4 @@ public class AircraftFactory {
         }
         return f;
 	}
-
-
 }

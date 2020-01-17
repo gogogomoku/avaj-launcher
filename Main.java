@@ -1,4 +1,5 @@
 import aircraft.*;
+import parser.*;
 
 public class Main {
 	public static void main(String[] args){
@@ -6,7 +7,8 @@ public class Main {
 			System.out.println("Usage: java Main <filename>");
 			System.exit(0);
 		} else {
-			new Launcher();
+			Parser.checkFileValidity(args[0]);
+			// new Launcher();
 			System.out.print("Done");
 			System.exit(0);
 		}
