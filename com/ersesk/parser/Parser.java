@@ -1,4 +1,4 @@
-package parser;
+package com.ersesk.parser;
 import java.util.*;
 import java.io.File;
 

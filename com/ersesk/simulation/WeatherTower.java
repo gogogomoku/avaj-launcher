@@ -1,4 +1,4 @@
-package aircraft;
+package com.ersesk.simulation;
 
 public class WeatherTower extends Tower {
     public String getWeather(Coordinates coordinates) {

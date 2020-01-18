@@ -1,4 +1,4 @@
-package parser;
+package com.ersesk.parser;
 
 public class AircraftData {
 	public String name;

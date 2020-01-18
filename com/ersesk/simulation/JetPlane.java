@@ -1,4 +1,4 @@
-package aircraft;
+package com.ersesk.simulation;
 import java.util.HashMap;
 
 public class JetPlane extends Aircraft implements Flyable {

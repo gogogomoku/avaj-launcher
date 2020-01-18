@@ -1,4 +1,4 @@
-package aircraft;
+package com.ersesk.simulation;
 
 public abstract class Aircraft {
 	protected long id;
