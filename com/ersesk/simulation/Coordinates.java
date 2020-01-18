@@ -16,19 +16,15 @@ public class Coordinates {
     }
 
     public void setLongitude(int value){
-        if (value > 360) {
-            value = value % 360;
-        } else if (value < 0) {
-            value = 360 - (value % 360);
+        if (value < 0) {
+            value = 0;
         }
         this.longitude = value;
     }
 
     public void setLatitude(int value){
-        if (value > 360) {
-            value = value % 360;
-        } else if (value < 0) {
-            value = 360 - (value % 360);
+        if (value < 0) {
+            value = 0;
         }
         this.latitude = value;
     }

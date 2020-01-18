@@ -11,8 +11,8 @@ public class Main {
 			System.out.println("Usage: java Main <filename>");
 			System.exit(0);
 		} else {
-			Launcher launcher = new Launcher();
 			Parser parser = new Parser(args[0]);
+            Launcher launcher = new Launcher(parser.nSims, parser.aircraftData);
 			System.out.print("Done");
 			System.exit(0);
 		}
