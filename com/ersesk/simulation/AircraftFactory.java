@@ -6,7 +6,7 @@ public class AircraftFactory {
         Flyable f = null;
         if (type.equals("Helicopter")){
             f = new Helicopter(name, coordinates);
-        } else if (type.equals("Balloon")) {
+        } else if (type.equals("Balloon") || type.equals("Baloon")) {
             f = new Balloon(name, coordinates);
         }  else if (type.equals("JetPlane")) {
             f = new JetPlane(name, coordinates);
