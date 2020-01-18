@@ -32,8 +32,7 @@ public class Parser {
 			input.close();
 			return;
 		} catch (Exception e) {
-			// todo: Proper error handling
-			System.out.printf("There was an error: %s\n", e);
+			System.out.printf("There was an error with your input: %s\n", e);
 			return;
 		}
 	}
