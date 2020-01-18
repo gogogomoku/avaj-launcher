@@ -15,9 +15,8 @@ public class WeatherProvider {
         return weatherProvider;
     }
 
-    // Todo: Base on coordinates
     public String getCurrentWeather(Coordinates coordinates){
         int rnd = new Random().nextInt(weather.length);
-        return weather[rnd];
+        return weather[(coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight() + rnd) % weather.length];
     }
 }
