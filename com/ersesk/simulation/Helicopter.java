@@ -31,7 +31,7 @@ public class Helicopter extends Aircraft implements Flyable {
                 break;
         }
         System.out.println(weatherMessages.get(weather));
-        System.out.println(coordinates.toString());
+        // System.out.println(coordinates.toString());
     }
 
     public void updateConditions(){

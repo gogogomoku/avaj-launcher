@@ -22,7 +22,6 @@ public class Parser {
 			File file = new File(path);
 			Scanner input = new Scanner(file);
 			this.nSims = Integer.parseInt(input.nextLine());
-			System.out.printf("nSims: %d\n", nSims);
 			while (input.hasNextLine()) {
                 validateLine(input.nextLine());
                 if (!errorMessage.isEmpty()){
@@ -31,7 +30,6 @@ public class Parser {
                 }
 			}
 			input.close();
-            System.out.print(this.aircraftData);
 			return;
 		} catch (Exception e) {
 			// todo: Proper error handling

@@ -7,13 +7,8 @@ public class Launcher {
 
 	public Launcher(int nSims, ArrayList<AircraftData> aircraftDataList) {
         WeatherTower tower = new WeatherTower();
-        // Get iterations from parser
-		int iterations = 40;
-		// For each Aircraftdata create aircraft
         aircraftDataList.forEach((n) -> createAircraft(n, tower));
-
-
-		for (int i = 0; i < iterations; i++){
+		for (int i = 0; i < nSims; i++){
 				tower.changeWeather();
 		}
 	}
