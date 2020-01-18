@@ -32,5 +32,9 @@ public abstract class Aircraft {
                 );
 
         }
-    }
+		}
+
+		protected void printMessagePrologue(String type, String name, long id, String message) {
+			System.out.printf("%s#%s(%d): %s\n", type, name, id, message);
+		}
 }
