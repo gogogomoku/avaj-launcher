@@ -1,5 +1,5 @@
-import aircraft.*;
-import parser.*;
+import com.ersesk.simulation.*;
+import com.ersesk.parser.*;
 
 // - TODO: Check we are giving unique ID to each Flyable
 // - TODO: Respect format of message when weather chagnes

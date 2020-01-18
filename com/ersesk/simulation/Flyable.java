@@ -1,4 +1,4 @@
-package aircraft;
+package com.ersesk.simulation;
 
 public interface Flyable{
     public void updateConditions();

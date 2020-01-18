@@ -1,4 +1,4 @@
-package aircraft;
+package com.ersesk.simulation;
 
 public class Coordinates {
     private int longitude;

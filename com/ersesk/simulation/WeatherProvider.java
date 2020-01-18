@@ -1,5 +1,5 @@
 
-package aircraft;
+package com.ersesk.simulation;
 import java.util.Random;
 
 public class WeatherProvider {
