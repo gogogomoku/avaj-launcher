@@ -1,5 +1,5 @@
 package com.ersesk.simulation;
-import parser.AircraftData;
+import com.ersesk.parser.AircraftData;
 import java.util.*;
 
 public class Launcher {
