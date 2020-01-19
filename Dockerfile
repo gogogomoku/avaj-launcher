@@ -7,4 +7,6 @@ WORKDIR /app
 COPY . .
 
 # TODO: decide input file
-RUN find . -name "*.java" > sources.txt && javac @sources.txt && java Main "./resources/scenario_simple-1.txt"
+RUN find . -name "*.java" > sources.txt \
+	&& javac @sources.txt \
+	&& java Main "./resources/scenario.txt"
