@@ -1,6 +1,6 @@
 package com.ersesk.simulation;
 
-import com.ersesk.parser.AircraftData;
+import com.ersesk.parser.*;
 import java.util.*;
 
 public class Launcher {
@@ -20,5 +20,17 @@ public class Launcher {
 		Flyable f = AircraftFactory.newAircraft(aircraftData.type, aircraftData.name, aircraftData.longitude,
 				aircraftData.latitude, aircraftData.height);
 		f.registerTower(tower);
+	}
+
+	public static void main(String[] args){
+		if (args.length != 1){
+			System.out.println("Usage: java Main <filename>");
+			System.exit(0);
+		} else {
+			Parser parser = new Parser(args[0]);
+			new Launcher(parser.nSims, parser.aircraftData);
+			System.out.print("Done, exiting.");
+			System.exit(0);
+		}
 	}
 }
