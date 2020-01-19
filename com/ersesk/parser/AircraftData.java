@@ -1,7 +1,7 @@
 package com.ersesk.parser;
 
 public class AircraftData {
-    public String type;
+	public String type;
 	public String name;
 	public int longitude;
 	public int latitude;

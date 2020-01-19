@@ -1,4 +1,5 @@
 package com.ersesk.simulation;
+
 import com.ersesk.parser.AircraftData;
 import java.util.*;
 
@@ -10,21 +11,14 @@ public class Launcher {
 		for (AircraftData item : aircraftDataList) {
 			createAircraft(item, tower);
 		}
-		for (int i = 0; i < nSims; i++){
-				tower.changeWeather();
+		for (int i = 0; i < nSims; i++) {
+			tower.changeWeather();
 		}
 	}
 
-    private void createAircraft(AircraftData aircraftData, WeatherTower tower) {
-        Flyable f = AircraftFactory.newAircraft(
-            aircraftData.type,
-            aircraftData.name,
-            aircraftData.longitude,
-            aircraftData.latitude,
-            aircraftData.height
-        );
+	private void createAircraft(AircraftData aircraftData, WeatherTower tower) {
+		Flyable f = AircraftFactory.newAircraft(aircraftData.type, aircraftData.name, aircraftData.longitude,
+				aircraftData.latitude, aircraftData.height);
 		f.registerTower(tower);
-    }
-
-
+	}
 }
