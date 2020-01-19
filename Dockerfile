@@ -5,8 +5,7 @@ RUN apk update && apk update && apk add git
 RUN mkdir /app
 WORKDIR /app
 COPY . .
+ARG inputFile="resources/scenario.txt"
+RUN ls resources/scenario.txt
 
-# TODO: decide input file
-RUN find . -name "*.java" > sources.txt \
-	&& javac @sources.txt \
-	&& java Main "./resources/scenario.txt"
+RUN sh ./launch.sh ${inputFile}
