@@ -23,18 +23,17 @@ public abstract class Aircraft {
 
     protected void land(WeatherTower weatherTower){
         if (this.coordinates.getHeight() == 0){
-            System.out.printf("%s %s landed at coordinates: (lng: %d,lat: %d, hgt:%d)\n",
+            Launcher.getWriter().printf("%s %s landed at coordinates: (lng: %d,lat: %d, hgt:%d)\n",
                     this.getClass().getSimpleName(),
                     this.name,
                     this.coordinates.getLongitude(),
                     this.coordinates.getLatitude(),
                     this.coordinates.getHeight()
-                );
-
+								);
         }
 		}
 
 		protected void printMessagePrologue(String type, String name, long id, String message) {
-			System.out.printf("%s#%s(%d): %s\n", type, name, id, message);
+			Launcher.getWriter().printf("%s#%s(%d): %s\n", type, name, id, message);
 		}
 }

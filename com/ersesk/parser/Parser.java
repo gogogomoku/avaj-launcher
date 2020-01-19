@@ -2,6 +2,7 @@ package com.ersesk.parser;
 
 import java.util.*;
 import java.io.File;
+import java.io.IOException;
 import java.lang.Character;
 
 public class Parser {
@@ -35,7 +36,8 @@ public class Parser {
             }
             input.close();
             return;
-        } catch (Exception e) {
+            // TODO: Test?
+        } catch (IOException | InputMismatchException e) {
             System.out.printf("There was an error with your input: %s\nExiting...\n", e);
             return;
         }
@@ -88,7 +90,7 @@ public class Parser {
                     System.out.println("INFO: Any height greater than 100 will be treated as 100");
                 }
                 coords.add(i - 2, val);
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 this.errorMessage = String.format("%s is not a valid coordinate on line: %d\n", data[i],
                         aircraftData.size() + 2);
                 return;

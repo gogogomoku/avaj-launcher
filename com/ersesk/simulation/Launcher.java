@@ -2,11 +2,21 @@ package com.ersesk.simulation;
 
 import com.ersesk.parser.*;
 import java.util.*;
+import java.io.*;
 
+// TODO: Double-check test scenario output
 public class Launcher {
 	public int nSims;
+	private static PrintWriter _combinedWriter;
 
 	public Launcher(int nSims, ArrayList<AircraftData> aircraftDataList) {
+		try {
+			Launcher._combinedWriter = new PrintWriter(new FileWriter("simulation.txt"));
+		} catch (IOException e) {
+			System.out.printf("Problem with creating logfile: %s\n", e);
+			System.exit(1);
+		}
+		Launcher._combinedWriter.println("");
 		WeatherTower tower = new WeatherTower();
 		for (AircraftData item : aircraftDataList) {
 			createAircraft(item, tower);
@@ -14,6 +24,11 @@ public class Launcher {
 		for (int i = 0; i < nSims; i++) {
 			tower.changeWeather();
 		}
+		Launcher._combinedWriter.close();
+	}
+
+	public static PrintWriter getWriter() {
+		return Launcher._combinedWriter;
 	}
 
 	private void createAircraft(AircraftData aircraftData, WeatherTower tower) {
@@ -22,8 +37,8 @@ public class Launcher {
 		f.registerTower(tower);
 	}
 
-	public static void main(String[] args){
-		if (args.length != 1){
+	public static void main(String[] args) {
+		if (args.length != 1) {
 			System.out.println("Usage: java Main <filename>");
 			System.exit(0);
 		} else {
@@ -33,7 +48,7 @@ public class Launcher {
 				System.exit(1);
 			}
 			new Launcher(parser.nSims, parser.aircraftData);
-			System.out.print("Done, exiting.");
+			System.out.print("INFO: Done, exiting.");
 			System.exit(0);
 		}
 	}

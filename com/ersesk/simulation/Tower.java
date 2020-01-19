@@ -21,6 +21,6 @@ public abstract class Tower {
     };
 
     public void logMessage(long id, String name, String type, String message) {
-        System.out.printf("Tower: %s#%s(%d)%s\n", type, name, id, message);
+        Launcher.getWriter().printf("Tower: %s#%s(%d)%s\n", type, name, id, message);
     }
 }
