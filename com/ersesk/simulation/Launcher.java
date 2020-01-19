@@ -28,6 +28,10 @@ public class Launcher {
 			System.exit(0);
 		} else {
 			Parser parser = new Parser(args[0]);
+			if (!parser.getErrorMessage().isEmpty()) {
+				System.out.printf("Exiting...\n");
+				System.exit(1);
+			}
 			new Launcher(parser.nSims, parser.aircraftData);
 			System.out.print("Done, exiting.");
 			System.exit(0);
