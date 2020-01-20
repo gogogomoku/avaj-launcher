@@ -37,7 +37,7 @@ public class JetPlane extends Aircraft implements Flyable {
     public void updateConditions(){
         String weather = this.weatherTower.getWeather(coordinates);
         setNewCoordinates(weather);
-        if (coordinates.getHeight() == 0){
+        if (coordinates.getHeight() <= 0){
             land(weatherTower);
             weatherTower.unregister(this);
             weatherTower.logTowerMessage(this.toString(), "unregistered from weather tower.");
