@@ -20,7 +20,7 @@ public abstract class Tower {
         }
     };
 
-    public void logMessage(long id, String name, String type, String message) {
-        Launcher.getWriter().printf("Tower: %s#%s(%d)%s\n", type, name, id, message);
+    public void logTowerMessage(String aircraftStr, String message) {
+        Launcher.getWriter().printf("Tower says: %s%s\n", aircraftStr, message);
     }
 }

@@ -48,7 +48,7 @@ public class Launcher {
 				System.exit(1);
 			}
 			new Launcher(parser.nSims, parser.aircraftData);
-			System.out.print("INFO: Done, exiting.");
+			System.out.println("INFO: Done, exiting.");
 			System.exit(0);
 		}
 	}
