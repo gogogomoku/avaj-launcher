@@ -31,7 +31,7 @@ public class JetPlane extends Aircraft implements Flyable {
                 break;
         }
         // System.out.println(coordinates.toString());
-        this.printMessagePrologue(this.getClass().getSimpleName(), name, id, weatherMessages.get(weather));
+        this.logAircraftMessage(weatherMessages.get(weather));
     }
 
     public void updateConditions(){
@@ -40,13 +40,13 @@ public class JetPlane extends Aircraft implements Flyable {
         if (coordinates.getHeight() == 0){
             land(weatherTower);
             weatherTower.unregister(this);
-            weatherTower.logMessage(this.id, this.name, this.getClass().getSimpleName(), " unregistered from weather tower.");
+            weatherTower.logTowerMessage(this.toString(), "unregistered from weather tower.");
         }
     }
 
     public void registerTower(WeatherTower weatherTower){
         this.weatherTower = weatherTower;
         weatherTower.register(this);
-        weatherTower.logMessage(this.id, this.name, this.getClass().getSimpleName(), " registered to weather tower.");
+        weatherTower.logTowerMessage(this.toString(), "registered to weather tower.");
     }
 }

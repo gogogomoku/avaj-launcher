@@ -33,7 +33,13 @@ public abstract class Aircraft {
         }
 		}
 
-		protected void printMessagePrologue(String type, String name, long id, String message) {
-			Launcher.getWriter().printf("%s#%s(%d): %s\n", type, name, id, message);
+		public String toString() {
+			return String.format("%s#%s(%d)", this.getClass().getSimpleName(), this.name, this.id);
 		}
+
+		protected void logAircraftMessage(String message) {
+			Launcher.getWriter().printf("%s: %s\n", this.toString(), message);
+		}
+
+
 }

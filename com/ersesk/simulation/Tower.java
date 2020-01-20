@@ -21,6 +21,6 @@ public abstract class Tower {
     };
 
     public void logTowerMessage(String aircraftStr, String message) {
-        Launcher.getWriter().printf("Tower says: %s%s\n", aircraftStr, message);
+        Launcher.getWriter().printf("Tower says: %s %s\n", aircraftStr, message);
     }
 }
