@@ -20,26 +20,35 @@ public class Parser {
         errorMessage = "";
 
         if (path.isEmpty()) {
-            System.out.printf("pathname is empty.");
+            System.out.printf("Error: Pathname is empty.");
             return;
         }
         try {
             File file = new File(path);
             Scanner input = new Scanner(file);
-            this.nSims = Integer.parseInt(input.nextLine());
-            while (input.hasNextLine()) {
-                validateLine(input.nextLine());
-                if (!errorMessage.isEmpty()) {
-                    System.out.println(errorMessage);
-                    break;
-                }
-            }
+            validateFile(input);
             input.close();
             return;
-            // TODO: Test?
         } catch (IOException | InputMismatchException e) {
-            System.out.printf("There was an error with your input: %s\nExiting...\n", e);
+            System.out.printf("Bad input: %s\nExiting...\n", e.getLocalizedMessage());
             return;
+        }
+    }
+
+    private void validateFile(Scanner input) {
+        try {
+            this.nSims = Integer.parseInt(input.nextLine());
+        } catch(NoSuchElementException e) {
+            System.out.printf("Bad input: %s\nExiting...\n", e.getLocalizedMessage());
+            input.close();
+            return;
+        }
+        while (input.hasNextLine()) {
+            validateLine(input.nextLine());
+            if (!errorMessage.isEmpty()) {
+                System.out.println(errorMessage);
+                break;
+            }
         }
     }
 
