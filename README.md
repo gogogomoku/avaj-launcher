@@ -9,13 +9,13 @@ tl;dr:
 ```shell
 find . -name "*.java" > sources.txt
 javac @sources.txt
-java com.ersesk.simulation.Launcher [filename]
+java [-v | --verbose] com.ersesk.simulation.Launcher FILENAME
 ```
 
 or simply:
 
 ```shell
-sh ./launch.sh [filename]
+sh ./launch.sh FILENAME
 ```
 
 Then check the output file:

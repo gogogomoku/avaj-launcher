@@ -6,7 +6,12 @@ import java.io.*;
 
 public class Launcher {
 	public int nSims;
+	public static boolean verbose;
 	private static PrintWriter _combinedWriter;
+
+	static {
+		verbose = false;
+	}
 
 	public Launcher(int nSims, ArrayList<AircraftData> aircraftDataList) {
 		try {
@@ -37,11 +42,14 @@ public class Launcher {
 	}
 
 	public static void main(String[] args) {
-		if (args.length != 1) {
-			System.out.println("Usage: java Main <filename>");
+		if (args.length == 2 && (args[0].equals("-v") || args[0].equals("--verbose"))) {
+			Launcher.verbose = true;
+		}
+		if (!Launcher.verbose && args.length != 1) {
+			System.out.println("Usage: java com.ersesk.simulation.Launcher [-v | --verbose] FILENAME");
 			System.exit(0);
 		} else {
-			Parser parser = new Parser(args[0]);
+			Parser parser = new Parser(Launcher.verbose ? args[1] : args[0]);
 			if (!parser.getErrorMessage().isEmpty()) {
 				System.out.printf("Exiting...\n");
 				System.exit(1);

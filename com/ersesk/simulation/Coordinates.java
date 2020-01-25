@@ -12,7 +12,7 @@ public class Coordinates {
     }
 
     public String toString() {
-        return String.format("[debug] (lng: %d, lat: %d), hgt: %d\n", this.longitude, this.latitude, this.height);
+        return String.format("[info] (lng: %d, lat: %d), hgt: %d", this.longitude, this.latitude, this.height);
     }
 
     public void setLongitude(int value) {
