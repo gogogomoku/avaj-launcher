@@ -4,7 +4,6 @@ import com.ersesk.parser.*;
 import java.util.*;
 import java.io.*;
 
-// TODO: Double-check test scenario output
 public class Launcher {
 	public int nSims;
 	private static PrintWriter _combinedWriter;
