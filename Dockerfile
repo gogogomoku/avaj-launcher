@@ -5,7 +5,7 @@ RUN apk update && apk update && apk add git
 RUN mkdir /app
 WORKDIR /app
 COPY . .
-ARG inputFile="resources/scenario.txt"
-RUN ls resources/scenario.txt
+ARG inputFile="resources/sujet-scenario.txt"
+RUN ls resources/sujet-scenario.txt
 
 RUN sh ./launch.sh ${inputFile}

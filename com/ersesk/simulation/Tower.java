@@ -3,12 +3,9 @@ package com.ersesk.simulation;
 import java.util.*;
 
 public abstract class Tower {
-    private ArrayList<Flyable> observers;
+    private ArrayList<Flyable> observers = new ArrayList<Flyable>();
 
     public void register(Flyable flyable) {
-        if (this.observers == null) {
-            this.observers = new ArrayList<Flyable>();
-        }
         this.observers.add(flyable);
     }
 
