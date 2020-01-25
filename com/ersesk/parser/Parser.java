@@ -20,7 +20,7 @@ public class Parser {
         errorMessage = "";
 
         if (path.isEmpty()) {
-            System.out.printf("Error: Pathname is empty.");
+            System.out.printf("Error: Pathname is empty.\n");
             return;
         }
         try {
@@ -44,7 +44,7 @@ public class Parser {
             return;
         }
         if (nSims < 0) {
-            System.out.printf("Bad input: %d\nn simulations must be a positive int.", 1);
+            System.out.printf("Bad input: %d\nn simulations must be a positive int.\n", 1);
         }
         while (input.hasNextLine()) {
             validateLine(input.nextLine());
@@ -73,18 +73,18 @@ public class Parser {
         String name = data[1];
         if (name.length() < 1 || name.length() > 10) {
             this.errorMessage = String.format(
-                    "%s is not a valid name: %d\nName length should be between 1 and 10 characters", name,
+                    "%s is not a valid name: %d\nName length should be between 1 and 10 characters\n", name,
                     aircraftData.size() + 2);
             return;
         }
         if (!Character.isLetter(name.charAt(0))) {
             this.errorMessage = String.format(
-                    "%s is not a valid name: %d\nName must start with an alphabetic character", name,
+                    "%s is not a valid name: %d\nName must start with an alphabetic character\n", name,
                     aircraftData.size() + 2);
             return;
         }
         if (!name.matches("[A-Za-z0-9]+")) {
-            this.errorMessage = String.format("%s is not a valid name: %d\nName must be alphanumeric", name,
+            this.errorMessage = String.format("%s is not a valid name: %d\nName must be alphanumeric\n", name,
                     aircraftData.size() + 2);
             return;
         }
