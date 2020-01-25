@@ -9,10 +9,10 @@ public class Balloon extends Aircraft implements Flyable {
     public Balloon(String name, Coordinates coordinates) {
         super(name, coordinates);
         weatherMessages = new HashMap<>();
-        weatherMessages.put("FOG", "I am a BALOON in the FOG");
-        weatherMessages.put("RAIN", "I am a BALOON in the RAIN");
-        weatherMessages.put("SNOW", "I am a BALOON in the SNOW");
-        weatherMessages.put("SUN", "I am a BALOON in the SUN");
+        weatherMessages.put("FOG", "I am a BALLOON in the FOG");
+        weatherMessages.put("RAIN", "I am a BALLOON in the RAIN");
+        weatherMessages.put("SNOW", "I am a BALLOON in the SNOW");
+        weatherMessages.put("SUN", "I am a BALLOON in the SUN");
     }
 
     private void setNewCoordinates(String weather) {
@@ -31,7 +31,9 @@ public class Balloon extends Aircraft implements Flyable {
             coordinates.setHeight(coordinates.getHeight() - 15);
             break;
         }
-        // System.out.println(coordinates.toString());
+        if (Launcher.verbose) {
+            this.logAircraftMessage(coordinates.toString());
+        }
         this.logAircraftMessage(weatherMessages.get(weather));
     }
 

@@ -38,10 +38,13 @@ public class Parser {
     private void validateFile(Scanner input) {
         try {
             this.nSims = Integer.parseInt(input.nextLine());
-        } catch(NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             System.out.printf("Bad input: %s\nExiting...\n", e.getLocalizedMessage());
             input.close();
             return;
+        }
+        if (nSims < 0) {
+            System.out.printf("Bad input: %d\nn simulations must be a positive int.", 1);
         }
         while (input.hasNextLine()) {
             validateLine(input.nextLine());
@@ -77,6 +80,11 @@ public class Parser {
         if (!Character.isLetter(name.charAt(0))) {
             this.errorMessage = String.format(
                     "%s is not a valid name: %d\nName must start with an alphabetic character", name,
+                    aircraftData.size() + 2);
+            return;
+        }
+        if (!name.matches("[A-Za-z0-9]+")) {
+            this.errorMessage = String.format("%s is not a valid name: %d\nName must be alphanumeric", name,
                     aircraftData.size() + 2);
             return;
         }
