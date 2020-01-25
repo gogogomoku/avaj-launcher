@@ -20,26 +20,38 @@ public class Parser {
         errorMessage = "";
 
         if (path.isEmpty()) {
-            System.out.printf("pathname is empty.");
+            System.out.printf("Error: Pathname is empty.");
             return;
         }
         try {
             File file = new File(path);
             Scanner input = new Scanner(file);
-            this.nSims = Integer.parseInt(input.nextLine());
-            while (input.hasNextLine()) {
-                validateLine(input.nextLine());
-                if (!errorMessage.isEmpty()) {
-                    System.out.println(errorMessage);
-                    break;
-                }
-            }
+            validateFile(input);
             input.close();
             return;
-            // TODO: Test?
         } catch (IOException | InputMismatchException e) {
-            System.out.printf("There was an error with your input: %s\nExiting...\n", e);
+            System.out.printf("Bad input: %s\nExiting...\n", e.getLocalizedMessage());
             return;
+        }
+    }
+
+    private void validateFile(Scanner input) {
+        try {
+            this.nSims = Integer.parseInt(input.nextLine());
+        } catch (NoSuchElementException e) {
+            System.out.printf("Bad input: %s\nExiting...\n", e.getLocalizedMessage());
+            input.close();
+            return;
+        }
+        if (nSims < 0) {
+            System.out.printf("Bad input: %d\nn simulations must be a positive int.", 1);
+        }
+        while (input.hasNextLine()) {
+            validateLine(input.nextLine());
+            if (!errorMessage.isEmpty()) {
+                System.out.println(errorMessage);
+                break;
+            }
         }
     }
 
@@ -68,6 +80,11 @@ public class Parser {
         if (!Character.isLetter(name.charAt(0))) {
             this.errorMessage = String.format(
                     "%s is not a valid name: %d\nName must start with an alphabetic character", name,
+                    aircraftData.size() + 2);
+            return;
+        }
+        if (!name.matches("[A-Za-z0-9]+")) {
+            this.errorMessage = String.format("%s is not a valid name: %d\nName must be alphanumeric", name,
                     aircraftData.size() + 2);
             return;
         }

@@ -16,7 +16,7 @@ public abstract class Aircraft {
 		this.id = nextId();
 	}
 
-	private static long nextId() {
+	private long nextId() {
 		idCounter++;
 		return idCounter;
 	}
