@@ -6,7 +6,7 @@ public class Balloon extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
     private HashMap<String, String> weatherMessages;
 
-    public Balloon(String name, Coordinates coordinates) {
+    Balloon(String name, Coordinates coordinates) {
         super(name, coordinates);
         weatherMessages = new HashMap<>();
         weatherMessages.put("FOG", "I am a BALLOON in the FOG");

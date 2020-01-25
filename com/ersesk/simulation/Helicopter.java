@@ -6,7 +6,7 @@ public class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
     private HashMap<String, String> weatherMessages;
 
-    public Helicopter(String name, Coordinates coordinates) {
+    Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
         weatherMessages = new HashMap<>();
         weatherMessages.put("FOG", "I am a HELICOPTER in the FOG");

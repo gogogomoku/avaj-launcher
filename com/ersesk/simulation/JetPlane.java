@@ -6,7 +6,7 @@ public class JetPlane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
     private HashMap<String, String> weatherMessages;
 
-    public JetPlane(String name, Coordinates coordinates) {
+    JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
         weatherMessages = new HashMap<>();
         weatherMessages.put("FOG", "I am a JET_PLANE in the FOG");
