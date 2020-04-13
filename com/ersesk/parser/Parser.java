@@ -5,6 +5,12 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.Character;
 
+/*
+Parser class verifies that the simulation number and the data provided are well formated,
+treating eahc simulation independently and returning an ArrayList object with all the
+simulation parameters ready to be treated by the Launcher class
+*/
+
 public class Parser {
     public int nSims;
     public ArrayList<AircraftData> aircraftData = new ArrayList<AircraftData>();

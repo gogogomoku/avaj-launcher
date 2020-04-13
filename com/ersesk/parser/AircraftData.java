@@ -1,5 +1,11 @@
 package com.ersesk.parser;
 
+/*
+AircraftData defines the data structure of every aircraft object.
+This data is provided by the simulation file and is extracted from
+it by the Parser class.
+*/
+
 public class AircraftData {
 	public String type;
 	public String name;
